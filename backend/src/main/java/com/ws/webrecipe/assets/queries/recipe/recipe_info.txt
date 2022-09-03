@@ -1,0 +1,15 @@
+prefix dbp: <http://dbpedia.org/property/>
+prefix dbo: <http://dbpedia.org/ontology/>
+prefix dbr: <http://dbpedia.org/resource/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT * WHERE {
+             OPTIONAL { dbr:Bourbon_chicken dbp:name ?name . }
+             OPTIONAL { dbr:Bourbon_chicken dbo:abstract ?abstract . }
+             OPTIONAL { dbr:Bourbon_chicken dbo:thumbnail ?thumbnail . }
+             OPTIONAL { dbr:Bourbon_chicken dbo:ingredientName ?ingredientName . }
+             FILTER (lang(?abstract) = "en")
+}
+
+
+

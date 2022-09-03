@@ -1,0 +1,28 @@
+prefix dbp: <http://dbpedia.org/property/>
+prefix dbo: <http://dbpedia.org/ontology/>
+prefix dbr: <http://dbpedia.org/resource/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {{
+                      ?recipe dbo:type dbr:Main_course .
+                      OPTIONAL { ?recipe dbp:name ?name . }
+                      OPTIONAL { ?recipe dbo:abstract ?abstract . }
+                      OPTIONAL { ?recipe dbo:thumbnail ?thumbnail . }
+                      OPTIONAL { ?recipe dbo:ingredientName ?ingredientName . }
+                      FILTER (lang(?abstract) = "en")
+}
+UNION {
+                      ?recipe dbo:types dbr:Main_course .
+                      OPTIONAL { ?recipe dbp:name ?name . }
+                      OPTIONAL { ?recipe dbo:abstract ?abstract . }
+                      OPTIONAL { ?recipe dbo:thumbnail ?thumbnail . }
+                      OPTIONAL { ?recipe dbo:ingredientName ?ingredientName . }
+                      FILTER (lang(?abstract) = "en")
+}}
+
+
+
+
+
+
+

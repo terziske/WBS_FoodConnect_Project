@@ -1,0 +1,11 @@
+prefix dbp: <http://dbpedia.org/property/>
+prefix dbo: <http://dbpedia.org/ontology/>
+prefix dbr: <http://dbpedia.org/resource/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+                      OPTIONAL { dbr:Main_course rdfs:label ?label . }
+                      OPTIONAL { dbr:Main_course rdfs:comment ?comment . }
+                      OPTIONAL { dbr:Main_course dbo:abstract ?abstract . }
+                      FILTER( lang(?label) = "en" && lang(?comment) = "en" && lang(?abstract) = "en")
+}
