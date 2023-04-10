@@ -1,5 +1,3 @@
-# barcafinder
-
 ## Project setup
 ```
 npm install
